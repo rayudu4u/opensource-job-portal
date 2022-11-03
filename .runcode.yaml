@@ -23,6 +23,12 @@ onCreate:
         pip install -U pip
         pip install -r requirements.txt
         python manage.py migrate
+        python manage.py loaddata industries
+        python manage.py loaddata qualification
+        python manage.py loaddata skills
+        python manage.py loaddata countries
+        python manage.py loaddata states
+        python manage.py loaddata cities
         python manage.py update_index
 onStart:
   - |
