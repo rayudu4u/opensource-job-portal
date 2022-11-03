@@ -10,18 +10,18 @@ onCreate:
           sudo -u postgres psql postgres -c "ALTER USER postgres PASSWORD 'root'"
           sudo -u postgres psql postgres -c "CREATE DATABASE peeljobs WITH OWNER = postgres"
     - |
-        echo "############################# NODE INSTALLATION #######################################"
-        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-        sudo apt-get install -y nodejs
-        sudo apt-get install node-less
-        sudo gem install sass
-        sudo ln -s /usr/bin/lessc /usr/local/bin/lessc
+          echo "############################# NODE INSTALLATION #######################################"
+          curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+          sudo apt-get install node-less
+          sudo gem install sass
+          sudo ln -s /usr/bin/lessc /usr/local/bin/lessc
     - |
-        echo "############################# DOCKER INSTALLATION #######################################"
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-        sudo apt install docker-ce -y
-        docker run -d --name elasticsearch -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+          echo "############################# DOCKER INSTALLATION #######################################"
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+          sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+          sudo apt install docker-ce -y
+          docker run -d --name elasticsearch -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.6
     - |
           echo "############################# DJANGO INSTALLATION #######################################"
           virtualenv -p python3 ../venv
