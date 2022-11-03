@@ -11,11 +11,10 @@ onCreate:
         sudo gem install sass
         sudo ln -s /usr/bin/lessc /usr/local/bin/lessc
   - |
-        echo "############################# DOCKER INSTALLATION #######################################"
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
         sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
         sudo apt install docker-ce -y
-        docker run -d --name elasticsearch -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+        docker run -d --name peeljobs-elasticsearch -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.6
   - |
         virtualenv -p python3 ../venv
         . ../venv/bin/activate
