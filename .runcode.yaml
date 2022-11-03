@@ -7,8 +7,7 @@ onCreate:
         sudo -u postgres psql postgres -c "CREATE DATABASE peeljobs WITH OWNER = postgres"
   - |
         curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-        sudo apt-get install -y nodejs
-        sudo apt-get install node-less
+        sudo apt-get install -y nodejs node-less
         sudo gem install sass
         sudo ln -s /usr/bin/lessc /usr/local/bin/lessc
   - |
